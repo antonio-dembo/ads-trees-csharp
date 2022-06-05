@@ -6,12 +6,8 @@ namespace ArvoreAVL
     public class AVLTree : IBinaryTree
     {
         private int numElement;
-        private Node root;
 
-        public AVLTree()
-        {
-            numElement = 0;
-        }
+        public AVLTree(){}
 
         public AVLTree(int element)
         {
@@ -67,31 +63,19 @@ namespace ArvoreAVL
             return traillingPointerOfTemp;
         }
 
-        private string PrintBstInPreOrder_R (Node node, StringBuilder str)
+        private void InPreOrder (Node root)
         {
-            node ??= Root;
-            if (node.SubArvoreEsquerda != null)
+            if ( root != null)
             {
-                str.AppendLine(node.Element.ToString());
-                PrintBstInPreOrder_R(node.SubArvoreEsquerda, str);
+                Console.WriteLine(root.Element + " ");
+                InPreOrder(root.SubArvoreEsquerda);
+                InPreOrder(root.SubArvoreDireita);
             }
-
-            if (node.SubArvoreDireita != null)
-            {
-                str.AppendLine(node.Element.ToString());
-                PrintBstInPreOrder_R(node.SubArvoreDireita, str);
-            }
-
-            return str.ToString();
         }
 
-        // A utility function to do inorder
-        // traversal of BST
         public void Inorder(Node root)
         {
-            if (root == null)
-                return;
-            else
+            if (root != null)
             {
                 Inorder(root.SubArvoreEsquerda);
                 Console.Write(root.Element + " ");
