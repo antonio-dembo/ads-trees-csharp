@@ -1,6 +1,6 @@
 ﻿using ArvoreAVL;
 
-namespace _arvoreAvl.Utils
+namespace ArvoreAVL.Utils
 {
     public class MockDataService
     {
